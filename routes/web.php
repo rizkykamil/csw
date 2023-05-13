@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\DashboardClientController;
-use App\Http\Controllers\DashboardServicesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +28,8 @@ Route::get('/', function () {
 });
 Route::get('/services', function () {
     return view('services', ["title" => "Services", "href" => "/"]);
+});
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });
