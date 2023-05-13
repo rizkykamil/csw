@@ -19,19 +19,19 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('admin.artikel.index') }}">
             <i class="far fa-newspaper"></i>
             <span>artikel</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('admin.galeri.index')}}">
             <i class="fas fa-image"></i>
             <span>galeri</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('admin.porto.index')}}">
             <i class="fas fa-briefcase"></i>
             <span>portofolio</span></a>
     </li>
