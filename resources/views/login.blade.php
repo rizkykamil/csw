@@ -48,8 +48,8 @@
           </div>
           @endif
             <h4 class="fw-bold mb-3">Login</h4>
-            <form class="col-md-12 needs-validation" action="" method="POST" novalidate>
-                @csrf
+            <form class="col-md-12 needs-validation" action="{{route('login.authenticate')}}" method="POST" novalidate enctype="multipart/form-data">
+                {{ csrf_field() }}
               <div class="col-md-12 mb-3">
                     <div class="form-group mb-3">
                         <label for="name">Email</label>
