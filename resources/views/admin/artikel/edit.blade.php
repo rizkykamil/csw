@@ -19,17 +19,18 @@
                 <!-- Page Heading -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-center text-primary">Tambah Data Galeri</h6>
+                        <h6 class="m-0 font-weight-bold text-center text-primary">Edit Data Artikel</h6>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('admin.galeri.store')}}" method="POST"enctype="multipart/form-data">
+                        <form action="{{route('admin.artikel.update', $data->id)}}" method="POST"enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="Judul">Name</label>
-                                            <input type="text" class="form-control" id="Name" name="name"
+                                            <input type="text" class="form-control"value="{{ $data->name }}" id="Name" name="name"
                                                 placeholder="Masukan Name">
                                         </div>
                                         <label for="" class="">File</label>
@@ -49,7 +50,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="Deskripsi">Deskripsi</label>
-                                            <input type="text" class="form-control" id="Deskripsi" name="deskripsi"
+                                            <input type="text" class="form-control" value="{{ $data->deskripsi }}" id="Deskripsi" name="deskripsi"
                                                 placeholder="Masukan Deskripsi">
                                         </div>
                                     </div>

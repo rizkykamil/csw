@@ -36,6 +36,12 @@
             <span>portofolio</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('register')}}">
+            <i class="fas fa-user"></i>
+            <span>Daftarkan Admin</span></a>
+    </li>
+
 
 
     <!-- Sidebar Toggler (Sidebar) -->

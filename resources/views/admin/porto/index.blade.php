@@ -17,16 +17,13 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Portofolio</h1>
+                <h1 class="h3 mb-4 text-gray-800">Porto</h1>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Data Portofolio</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Data Porto</h6>
                     </div>
                     <div class="card-body">
-                        <div>
-                            {{-- add data  --}}
-                            <a href="{{route('admin.porto.create')}}" class="btn btn-primary btn-sm mb-4">Add Data</a>
-                        </div>
+                        <a href="{{route('admin.porto.create')}}" class="btn btn-primary btn-sm mb-3 ">Add Data</a>
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -39,20 +36,25 @@
                                 </thead>
                                
                                 <tbody>
+                                    @foreach ($data as $item)
                                     <tr>
-                                        
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->name }}</td>
                                         <td>
-                                            {{-- membuat edit dan hapus --}}
-                                            <a href="" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                            {{-- hapus --}}
-                                            <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                            <img src="{{ asset($item->gambar) }}" alt="" width="100px">
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('admin.porto.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('admin.porto.destroy', $item->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
-
+                                    @endforeach
                                 </tbody>
+                                
                             </table>
                         </div>
                     </div>

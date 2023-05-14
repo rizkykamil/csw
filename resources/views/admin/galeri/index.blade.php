@@ -23,7 +23,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">Data Galeri</h6>
                     </div>
                     <div class="card-body">
-                        <a href="{{route('admin.galeri.create')}}" class="btn btn-primary btn-sm mb-3 ">Add Data </a>
+                        <a href="{{route('admin.galeri.create')}}" class="btn btn-primary btn-sm mb-3 ">Add Data</a>
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -36,20 +36,25 @@
                                 </thead>
                                
                                 <tbody>
+                                    @foreach ($data as $item)
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                      
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->name }}</td>
                                         <td>
-                                            {{-- membuat edit dan hapus --}}
-                                            <a href="" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                            {{-- hapus --}}
-                                            <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                            <img src="{{ asset($item->gambar) }}" alt="" width="100px">
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('admin.galeri.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('admin.galeri.destroy', $item->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
-
+                                    @endforeach
                                 </tbody>
+                                
                             </table>
                         </div>
                     </div>

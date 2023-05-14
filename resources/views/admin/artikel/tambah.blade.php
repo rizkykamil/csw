@@ -15,21 +15,22 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
+                @include('admin.partials._notif')
                 <!-- Page Heading -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-center text-primary">Tambah Data Artikel</h6>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="{{route('admin.artikel.store')}}" method="POST"enctype="multipart/form-data">
+                            @csrf
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="Judul">Judul</label>
-                                            <input type="text" class="form-control" id="Judul"
-                                                placeholder="Masukan Judul">
+                                            <label for="Judul">Name</label>
+                                            <input type="text" class="form-control" id="Name" name="name"
+                                                placeholder="Masukan Name">
                                         </div>
                                         <label for="" class="">File</label>
                                         <div class="input-group mb-3 ">
@@ -39,7 +40,7 @@
                                             </div>
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                                    aria-describedby="inputGroupFileAddon01">
+                                                    aria-describedby="inputGroupFileAddon01" name="file">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose
                                                     file</label>
                                             </div>
@@ -48,7 +49,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="Deskripsi">Deskripsi</label>
-                                            <input type="text" class="form-control" id="Deskripsi"
+                                            <input type="text" class="form-control" id="Deskripsi" name="deskripsi"
                                                 placeholder="Masukan Deskripsi">
                                         </div>
                                     </div>
